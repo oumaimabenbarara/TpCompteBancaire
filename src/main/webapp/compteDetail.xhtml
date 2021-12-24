@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:viewParam name="id" value="#{compteDetail.idCompte}" required="true"/>
+                    <f:viewAction action="#{compteDetail.loadCompteBancaire()}"/>
+                </f:metadata>
+            </ui:define>
+            <ui:define name="top">
+                detail du compte #{compteDetail.idCompte} de M/Mme #{compteDetail.compteBanquaire.nom}
+            </ui:define>
+            <ui:define name="content">
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <p:panelGrid columns="2">
+                         
+                            <p:outputLabel value="Nom:" for="nom" />
+                            <p:inputText id="nom" value="#{compteDetail.compteBanquaire.nom}" title="Nom" />
+                        </p:panelGrid>
+                        <h:commandButton id="update" value="Enregistrer" action="#{compteDetail.update()}"/>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

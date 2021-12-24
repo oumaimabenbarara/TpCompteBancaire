@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+ n
+        <ui:composition template="./WEB-INF/templates/template.xhtml">
+
+            <ui:define name="top">
+                ajouter compte
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Nom:" for="nom" />
+                            <p:inputText id="nom" value="#{ajouter.nom}" required="true" title="Nom" />
+                            <p:outputLabel value="Solde:" for="solde" />
+                            <p:inputText id="solde" value="#{ajouter.solde}" title="Solde" />
+                        </p:panelGrid>
+                        <h:commandButton id="ajouter" value="creer compte" action="#{ajouter.ajouter()}" />
+                    </h:form>
+                </f:view>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
